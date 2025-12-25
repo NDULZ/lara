@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <template_manifest>
-    <title>Sheril's Vision template</title>
-    <author>shaeteq.com</author>
-    <forma_version>4.0.19</forma_version>
+    <title>Standard template</title>
+    <author>forma.lms</author>
+    <forma_version>4.0.6</forma_version>
 </template_manifest>

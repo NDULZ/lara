@@ -13,7 +13,6 @@ vendor/
 *.swp
 *.swo
 *~
-.DS_Store
 
 # Build/Cache
 dist/
@@ -30,6 +29,7 @@ error_log
 # OS
 Thumbs.db
 .DS_Store
+**/.DS_Store
 
 # Compiled assets
 public/css/
