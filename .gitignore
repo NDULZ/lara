@@ -25,6 +25,7 @@ bootstrap/cache/
 # Logs
 *.log
 logs/
+error_log
 
 # OS
 Thumbs.db
