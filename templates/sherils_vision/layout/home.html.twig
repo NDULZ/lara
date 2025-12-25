@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ Layout_getLangCode() }}" lang="{{ Layout_getLangCode() }}" >
+<head>
+    <!--Fix funzionamento scorm su IE9-->
+    <meta http-equiv="x-ua-compatible" content="IE=11"/>
+    <!--END -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ Layout_getTitle() }}</title>
+    {{ Layout_getZone('meta') }}
+    <link rel="shortcut icon" href="{{ Layout_getPath() }}images/favicon.png" type="image/png"/>
+    <link rel="shortcut icon" href="{{ Layout_getPath() }}images/favicon.ico"/>
+    <!-- reset and font stylesheet -->
+    {{ Layout_getResetter() }}
+    <!-- common stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{{ Layout_getPath() }}style/base.css?v={{ Template_getVersion() }}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{{ Layout_getPath() }}style/lms-home.css?v={{ Template_getVersion() }}"/>
+
+    {% if custom_css_path is defined %}
+        <link rel="stylesheet" type="text/css" href="{{ custom_css_path }}?v={{ Template_getVersion() }}"/>
+    {% endif %}
+    {{ Layout_getRtl() }}
+    <!-- specific stylesheet -->
+    {{ Yui_load('base') }}
+    <!-- Page Head area -->
+    {{ Layout_getZone('page_head') }}
+
+    <!-- JQuery, Bootstrap  -->
+    {% block jquery_core %}
+        {{ jqueryLib|raw }}
+    {% endblock %}
+
+    <script type="text/javascript">
+
+        window.frontend = {};
+        window.frontend.config = JSON.parse('{{ clientConfig|raw }}');
+
+    </script>
+
+    {% block bootstrap %}
+        {{ boostrap|raw }}
+    {% endblock %}
+
+    {% block jquery_addons %}
+        <!-- addons: js -->
+        {{ jsAddons|raw }}
+    {% endblock %}
+
+    {% block css_addons %}
+        <!-- addons: css -->
+        {{ cssAddons|raw }}
+    {% endblock %}
+
+    {% block locale_calendar %}
+        <!-- locale data format -->
+        {{ locale_calendar|raw }}
+    {% endblock %}
+
+    <!-- Restyling -->
+    <link rel="stylesheet" type="text/css"
+          href="{{ Layout_getPath() }}static/main.{{ Layout_getHighContrastCss() }}min.css?v={{ Template_getVersion() }}">
+    <!--
+    To use or edit the not minified css uncomment this portion of code
+    <link rel="stylesheet" type="text/css" href="{{ Layout_getPath() }}static/main.css">
+    -->
+    <script type="text/javascript" src="{{ Layout_getPath() }}static/main.js?v={{ Template_getVersion() }}"></script>
+</head>
+
+<body class="homepage js-router--homepage">
+{% block     %}
+    <!-- content -->
+    <main class="homepage__content content-margin">
+        {{ Layout_getHighContrast() }}
+        <div class="homepage__row homepage__row--header">
+            <div class="pull-center">
+                <h1 class="no_margin_padding"><span class="screenreader">{{ Lang_translate('_LOGIN_LEGEND', 'login') }}</span></h1>
+                <a href="index.php" class="image-link">
+                    <img class="left_logo" src="{{ Layout_getPath() }}images/company_logo.png" alt="{{ Lang_translate('_COMPANY_LOGO', 'sherils_visionj') }}"/>
+                </a>
+            </div>
+        </div>
+        {{ Layout_getZone('content') }}
+    </main>
+{% endblock %}
+{% block homeFooter %}
+    <!--
+    <footer class="homepage__footer">
+        {{ Layout_getZone('footer') }}
+        {{ Layout_getCopyright() }}
+    </footer> footer -->
+{% endblock %}
+<!-- def lang -->
+{{ Layout_getZone('def_lang') }}
+<!-- scripts -->
+{{ Layout_getZone('scripts') }}
+<!-- end scripts -->
+{{ Layout_getZone('debug') }}
+{{ Layout_getAnalytics() }}
+
+</body>
+</html>

@@ -1,0 +1,741 @@
+<?php
+
+/*
+ * FORMA - The E-Learning Suite
+ *
+ * Copyright (c) 2013-2023 (Forma)
+ * https://www.formalms.org
+ * License https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
+ *
+ * from FORMA 4.0.5 CE 2008-2012 (c) FORMA
+ * License https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
+ */
+
+defined('IN_FORMA') or exit('Direct access is forbidden.');
+
+/*
+ * This is the base library for import/export operations in Forma.
+ * You should import this library if you want to develop your own
+ * source or destination connector. This file is also imported in
+ * modules/ioTask.php
+ *
+ * @package admin-library
+ * @subpackage io-operation
+ * @version  $Id:$
+ * @version 	$Id: lib.import.php 552 2006-08-02 16:02:38Z fabio $
+ * @author		Emanuele Sandri <emanuele (@) FORMA (.) com>
+ **/
+
+/* Index for column name */
+define('FORMAIMPORT_COLNAME', 0);
+/* Index for column id */
+define('FORMAIMPORT_COLID', 1);
+/* Index for column data type */
+define('FORMAIMPORT_DATATYPE', 2);
+/* Index for column mandatory flag */
+define('FORMAIMPORT_COLMANDATORY', 3);
+/* Index for column default value */
+define('FORMAIMPORT_DEFAULT', 4);
+
+/* Unknown data type */
+define('FORMAIMPORT_DATATYPE_UNKNOWN', -1);
+/* This field should be ignored */
+define('FORMAIMPORT_IGNORE', 'ignorefield');
+
+/**
+ * abstract class for define the source of an import.
+ *
+ * @version 	1.1
+ *
+ * @author		Emanuele Sandri <emanuele (@) FORMA (.) com>
+ **/
+class FormaImport_Source
+{
+    /**
+     * Return the number of columns.
+     *
+     * @return int the number of columns in the source
+     **/
+    public function get_tot_cols()
+    {
+    }
+
+    /**
+     * execute the connection to source.
+     **/
+    public function connect()
+    {
+    }
+
+    /**
+     * execute the close of the connection.
+     **/
+    public function close()
+    {
+    }
+
+    /**
+     * @return array the array of columns descriptor
+     *               FORMAIMPORT_COLNAME => string the name of the column
+     *               FORMAIMPORT_DATATYPE => the data type of the column
+     **/
+    public function get_cols_descripor()
+    {
+    }
+
+    /**
+     * @return array fist row of data in source
+     **/
+    public function get_first_row()
+    {
+    }
+
+    /**
+     * @return array next row of data in source
+     **/
+    public function get_next_row()
+    {
+    }
+
+    /**
+     * @return bool TRUE if the source is at EOF
+     **/
+    public function is_eof()
+    {
+    }
+
+    /**
+     * @return int the actual position in source. Base index = 0
+     **/
+    public function get_row_index()
+    {
+    }
+
+    /**
+     * @return the charset used
+     **/
+    public function get_charset()
+    {
+    }
+}
+
+/**
+ * abstract class for define the destination of an import.
+ *
+ * @version 	1.1
+ *
+ * @author		Emanuele Sandri <emanuele (@) FORMA (.) com>
+ **/
+class FormaImport_Destination
+{
+    /**
+     * execute the connection to source.
+     **/
+    public function connect()
+    {
+    }
+
+    /**
+     * execute the close of the connection.
+     **/
+    public function close()
+    {
+    }
+
+    /**
+     * @return int the number of columns in the source
+     **/
+    public function get_tot_cols()
+    {
+    }
+
+    /**
+     * @return array the array of columns descriptor
+     *               - FORMAIMPORT_COLNAME => string the name of the column
+     *               - FORMAIMPORT_COLID => string the id of the column (optional,
+     *               same as COLNAME if not given)
+     *               - FORMAIMPORT_COLMANDATORY => bool TRUE if col is mandatory
+     *               - FORMAIMPORT_DATATYPE => the data type of the column
+     *               - FORMAIMPORT_DEFAULT => the default value for the column (Optional)
+     **/
+    public function get_cols_descripor()
+    {
+    }
+
+    /**
+     * @return int the number of mandatory columns to import
+     **/
+    public function get_tot_mandatory_cols()
+    {
+    }
+
+    /**
+     * @param array data to insert; is an array with keys the names of cols and
+     *				values the data
+     *
+     * @return true if the row was succesfully inserted, FALSE otherwise
+     **/
+    public function add_row($row, $tocompare = false)
+    {
+        $row = $row;
+    }
+
+    /**
+     * @param string $charset the charset used
+     **/
+    public function set_charset($charset)
+    {
+    }
+
+    /**
+     * Return the last generated error.
+     *
+     * @return the description of the last error
+     **/
+    public function get_error()
+    {
+    }
+}
+
+/**
+ * class for mysql source import.
+ *
+ * @version 	1.1
+ *
+ * @author		Emanuele Sandri <emanuele (@) FORMA (.) com>
+ **/
+class FormaImport_DestinationMySQL extends FormaImport_Destination
+{
+    public $dbconn = null;
+    public $table = null;
+    public $mandatory_cols = null;
+    public $cols_descriptor = null;
+    public $last_error = null;
+
+    /**
+     * constructor for mysql destination connection.
+     *
+     * @param array $params
+     *                      - 'dbconn' => connection to database (required)
+     *                      - 'table' => table name for insert (required)
+     *                      - 'mandatory_cols' => array of names of mandatory columns (Optional).
+     *                      if not given it's computed from table
+     *                      fields definition
+     **/
+    public function __construct($params)
+    {
+        $this->dbconn = $params['dbconn'];
+        $this->table = $params['table'];
+        if (isset($params['mandatory_cols'])) {
+            $this->mandatory_cols = $params['mandatory_cols'];
+        }
+    }
+
+    public function connect()
+    {
+        $this->last_error = null;
+        $this->cols_descriptor = null;
+        if ($this->dbconn === null) {
+            $this->last_error = 'dbconn is null';
+
+            return false;
+        }
+        $query = 'SHOW FIELDS FROM ' . $this->table;
+        $rs = sql_query($query, $this->dbconn);
+        if ($rs === false) {
+            $this->last_error = 'Error on query: ' . $query . ' [' . sql_error($this->dbconn) . ']';
+
+            return false;
+        }
+        $this->cols_descriptor = [];
+        if ($this->mandatory_cols === null) {
+            $computed_mandatory_cols = [];
+        }
+        while ($field_info = sql_fetch_array($rs)) {
+            if ($this->mandatory_cols === null) {
+                if ($field_info['Null'] != 'YES') {
+                    $computed_mandatory_cols[] = $field_info['Field'];
+                    $mandatory = true;
+                } else {
+                    $mandatory = false;
+                }
+            } else {
+                $mandatory = in_array($field_info['Field'], $this->mandatory_cols);
+            }
+            $this->cols_descriptor[] =
+                        [FORMAIMPORT_COLNAME => $field_info['Field'],
+                                FORMAIMPORT_COLMANDATORY => $mandatory,
+                                FORMAIMPORT_DATATYPE => $field_info['Type'], ];
+        }
+        if ($this->mandatory_cols === null) {
+            $this->mandatory_cols = $computed_mandatory_cols;
+        }
+
+        sql_free_result($rs);
+
+        return true;
+    }
+
+    public function close()
+    {
+        $this->cols_descriptor = null;
+    }
+
+    public function get_tot_cols()
+    {
+        if ($this->cols_descriptor === null) {
+            return 0;
+        }
+
+        return count($this->cols_descriptor);
+    }
+
+    public function get_cols_descripor()
+    {
+        return $this->cols_descriptor;
+    }
+
+    public function get_tot_mandatory_cols()
+    {
+        if ($this->mandatory_cols === null) {
+            return 0;
+        }
+
+        return count($this->mandatory_cols);
+    }
+
+    public function add_row($row, $compare = false)
+    {
+        if ($this->mandatory_cols === null) {
+            return false;
+        }
+        // ferify all mandatory cols
+        $keys = array_keys($row);
+        foreach ($this->mandatory_cols as $col_name) {
+            if (!in_array($col_name, $keys)) {
+                $this->last_error = 'Some mandatory cols is not present';
+
+                return false;
+            }
+        }
+        $fields = "('" . implode("','", $keys) . "')";
+        $values = "('" . implode("','", array_values($row)) . "')";
+
+        $query = 'INSERT INTO ' . $this->table
+                . ' ' . $fields . ' VALUES ' . $values;
+        if (!sql_query($query, $this->dbconn)) {
+            $this->last_error = 'Error on query: ' . $query . ' [' . sql_error($this->dbconn) . ']';
+
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function get_error()
+    {
+        return $this->last_error;
+    }
+}
+/**
+ *	The base source connector for csv files.
+ *
+ * @version 	1.1
+ *
+ * @author		Emanuele Sandri <emanuele (@) FORMA (.) com>
+ **/
+class DeceboImport_SourceCSV extends FormaImport_Source
+{
+    public $filename = null;
+    public $filehandle = null;
+    public $first_row_header = true;
+    public $separator = ',';
+    public $charset = 'UTF-8';
+    public $cols_descriptor = null;
+    public $row_index = 0;
+
+    /**
+     *	This constructor require the source file name.
+     *
+     * @param array $params the array of params
+     *                      - 'filename' => name of the file (required)
+     *                      - 'first_row_header' => bool TRUE if first row is header (Optional, default = TRUE )
+     *                      - 'separator' => string a char with the fields separator (Optional, default = ,)
+     **/
+    public function __construct($params)
+    {
+        $this->filename = $params['filename'];
+        if (isset($params['first_row_header'])) {
+            $this->first_row_header = $params['first_row_header'];
+        }
+        if (isset($params['separator'])) {
+            $this->separator = $params['separator'];
+        }
+        if (isset($params['import_charset'])) {
+            $this->charset = $params['import_charset'];
+        }
+    }
+
+    public function connect()
+    {
+        $this->close();
+        $this->cols_descriptor = null;
+        $this->filehandle = @fopen($this->filename, 'r');
+        if ($this->filehandle === false) {
+            echo 'file not opened: ' . $this->filename;
+
+            return false;
+        }
+        $separator = (!$this->separator ? ',' : $this->separator); //if no separator has been specified, then use standard separators
+        $row = fgetcsv($this->filehandle, 10000, $separator);
+        if (is_array($row) && count($row) == 1 && !$this->separator) {
+            $separator = ';';
+            if (!@rewind($this->filehandle)) {
+                return false;
+            }
+            $row = fgetcsv($this->filehandle, 10000, $separator);
+        }
+        $this->separator = $separator; //assign detected separator
+        if (!is_array($row)) {
+            echo 'no rows found on ' . $this->filename;
+
+            return false;
+        }
+        if (count($row) == 0) {
+            echo 'no rows found on ' . $this->filename;
+
+            return false;
+        }
+        $this->cols_descriptor = [];
+        if ($this->first_row_header) {
+            foreach ($row as $col_name) {
+                $this->cols_descriptor[] = [FORMAIMPORT_COLNAME => $col_name,
+                                            FORMAIMPORT_DATATYPE => FORMAIMPORT_DATATYPE_UNKNOWN, ];
+            }
+            $this->row_index = 1;
+        } else {
+            // the column names will be the col number 0 ... n
+            for ($name = 0; $name < count($row); ++$name) {
+                $this->cols_descriptor[] = [FORMAIMPORT_COLNAME => (string) $name,
+                                            FORMAIMPORT_DATATYPE => FORMAIMPORT_DATATYPE_UNKNOWN, ];
+            }
+        }
+
+        return true;
+    }
+
+    public function close()
+    {
+        $this->cols_descriptor = null;
+        if ($this->filehandle !== null) {
+            if (!@fclose($this->filehandle)) {
+                return false;
+            }
+        }
+        $this->filehandle = null;
+        $this->row_index = 0;
+
+        return true;
+    }
+
+    public function get_tot_cols()
+    {
+        if ($this->cols_descriptor === null) {
+            return 0;
+        }
+
+        return count($this->cols_descriptor);
+    }
+
+    public function get_cols_descripor()
+    {
+        return $this->cols_descriptor;
+    }
+
+    public function get_first_row()
+    {
+        if ($this->filehandle === null) {
+            return false;
+        }
+        if (!@rewind($this->filehandle)) {
+            return false;
+        }
+        $row = fgetcsv($this->filehandle, 10000, $this->separator);
+        ++$this->row_index;
+        if ($this->first_row_header) {
+            $row = fgetcsv($this->filehandle, 10000, $this->separator);
+            ++$this->row_index;
+        }
+        if (!is_array($row)) {
+            return false;
+        }
+        if (count($row) == 0) {
+            return false;
+        }
+
+        return $row;
+    }
+
+    public function get_next_row()
+    {
+        if ($this->filehandle === null) {
+            return false;
+        }
+        $row = fgetcsv($this->filehandle, 10000, $this->separator);
+        if (!is_array($row)) {
+            return false;
+        }
+        if (count($row) == 0) {
+            return false;
+        }
+        ++$this->row_index;
+
+        return $row;
+    }
+
+    public function is_eof()
+    {
+        return feof($this->filehandle);
+    }
+
+    public function get_row_index()
+    {
+        return $this->row_index;
+    }
+
+    public function get_charset()
+    {
+        return $this->charset;
+    }
+}
+
+define('FORMAIMPORT_TYPECSV', 0);
+define('FORMAIMPORT_TYPEMYSQL', 1);
+/**
+ * class to manage import.
+ *
+ * @version 	1.1
+ *
+ * @author		Emanuele Sandri <emanuele (@) FORMA (.) com>
+ **/
+class FormaImport
+{
+    public $source = null;
+    public $destination = null;
+    public $import_map = null;
+    public $import_tocompare = null;
+
+    /**
+     * static function to create a Source standard instance.
+     *
+     * @static
+     *
+     * @param int   $type   one of FORMAIMPORT_TYPEXXX constant
+     * @param array $params params for the FormaImport_Source constructor
+     *
+     * @return FormaImport_Source instance of FormaImport_Source; NULL if method
+     *                             fail
+     **/
+    public function createImport_Source($type, $params)
+    {
+        switch ($type) {
+            case FORMAIMPORT_TYPECSV:
+                return new DeceboImport_SourceCSV($params);
+        }
+
+        return null;
+    }
+
+    /**
+     * static function to create a Destination standard instance.
+     *
+     * @static
+     *
+     * @param int   $type   one of FORMAIMPORT_TYPEXXX constant
+     * @param array $params params for the FormaImport_Destination constructor
+     *
+     * @return FormaImport_Destination instance of FormaImport_Destination;
+     *                                  NULL if method fail
+     **/
+    public function createImport_Destination($type, $params)
+    {
+        switch ($type) {
+            case FORMAIMPORT_MYSQL:
+                return new FormaImport_DestinationMySQL($params);
+        }
+
+        return null;
+    }
+
+    public function setSource(&$source)
+    {
+        $this->source = &$source;
+    }
+
+    public function setDestination(&$destination)
+    {
+        $this->destination = &$destination;
+    }
+
+    /**
+     * This method create an HTML UI for create the map of fields from
+     * source to destination.
+     **/
+    public function getUIMap()
+    {
+        require_once _base_ . '/lib/lib.table.php';
+        require_once _base_ . '/lib/lib.form.php';
+        $lang = FormaLanguage::createInstance('organization_chart', 'framework');
+        $form = new Form();
+        $table = new Table(FormaLms\lib\Get::sett('visuItem'), $lang->def('_IMPORT_MAP'), $lang->def('_IMPORT_MAP'));
+
+        $src_cols = $this->source->get_cols_descripor();
+        $dst_cols = $this->destination->get_cols_descripor();
+
+        $combo_elements = [];
+        $combo_elements[FORMAIMPORT_IGNORE] = $lang->def('_IMPORT_IGNORE');
+
+        foreach ($dst_cols as $col) {
+            if (isset($col[FORMAIMPORT_COLID])) {
+                $combo_elements[$col[FORMAIMPORT_COLID]] = $col[FORMAIMPORT_COLNAME];
+            } else {
+                $combo_elements[$col[FORMAIMPORT_COLNAME]] = $col[FORMAIMPORT_COLNAME];
+            }
+        }
+
+        $table_dst_labels = [];
+        $table_dst_tocompare = [];
+        $table_src_labels = [];
+        $table_src_labels_type = [];
+        $count = 0;
+        foreach ($src_cols as $col) {
+            $table_src_labels[] = $col[FORMAIMPORT_COLNAME];
+            $table_src_labels_type[] = '';
+            $table_dst_labels[] = $form->getInputDropdown('dropdown_nowh',
+                                                        'import_map_' . $count,
+                                                        'import_map[' . $count . ']',
+                                                        $combo_elements,
+                                                        FORMAIMPORT_IGNORE,
+                                                        '');
+            $table_dst_tocompare[] = $form->getHidden('import_tocompare_' . $count, 'import_tocompare[' . $count . ']', '', true);
+            ++$count;
+        }
+
+        $table->setColsStyle($table_src_labels_type);
+        $table->addHead($table_dst_labels);
+        $table->addHead($table_dst_tocompare);
+        $table->addHead($this->encode_array($table_src_labels, $this->source->get_charset()));
+        $count = 0;
+        $row = $this->source->get_first_row();
+
+        while ($row !== false && $count < 10) {
+            $table->addBody($this->encode_array($row, $this->source->get_charset()));
+            $row = $this->source->get_next_row();
+            ++$count;
+        }
+
+        return $table->getTable();
+    }
+
+    public function getTotRow()
+    {
+        $count = 0;
+        $row = $this->source->get_first_row();
+
+        while ($row !== false) {
+            $row = $this->source->get_next_row();
+            ++$count;
+        }
+
+        return $count;
+    }
+
+    public function encode_array(&$row, $charset)
+    {
+        for ($index = 0; $index < count($row); ++$index) {
+            $row[$index] = htmlentities($row[$index], ENT_QUOTES, $charset);
+        }
+
+        return $row;
+    }
+
+    public function parseMap()
+    {
+        if (isset($_POST['import_map'])) {
+            $this->import_map = $_POST['import_map'];
+            $this->import_tocompare = $_POST['import_tocompare'];
+        }
+    }
+
+    /**
+     * Do the import operation. This function reads all row from source and puts
+     * its on destination.
+     *
+     * @return array with input_row_index => error only for rows with error
+     *               in index 0 there are the total processed rows
+     **/
+    public function doImport()
+    {
+        $out = []; 	// error list
+        $dst_cols = $this->destination->get_cols_descripor();
+        $row = $this->source->get_first_row();
+        $i = 0;
+        $open_transaction = false;
+        while ($row !== false) {
+            $insrow = [];
+            $tocompare = [];
+            for ($index = 0; $index < count($this->import_map); ++$index) {
+                if ($this->import_map[$index] != FORMAIMPORT_IGNORE) {
+                    $insrow[$this->import_map[$index]] = $row[$index];
+                    if (in_array($index, array_keys($this->import_tocompare))) {
+                        $tocompare[$this->import_map[$index]] = $row[$index];
+                    }
+                }
+            }
+
+            if ($i == 0) {
+                \FormaLms\lib\Forma::db()->start_transaction();
+                $open_transaction = true;
+            }
+            /*
+            foreach( $dst_cols as $col ) {
+                $col_name = isset($col[FORMAIMPORT_COLID])?$col[FORMAIMPORT_COLID]:$col[FORMAIMPORT_COLNAME];
+                if( !isset($insrow[$col_name]) ) {
+                    $insrow[$col_name] = (isset($col[FORMAIMPORT_DEFAULT]) ? $col[FORMAIMPORT_DEFAULT] : '');
+                }
+            }*/
+            $this->destination->set_charset($this->source->get_charset());
+            //if( !$this->destination->add_row($insrow) ) {
+            if (!$this->destination->add_row($insrow, $tocompare)) {
+                $out[$this->source->get_row_index()] = $this->destination->get_error();
+            }
+
+            if ($i == 100) {
+                $i = 0;
+                \FormaLms\lib\Forma::db()->commit();
+                $open_transaction = false;
+            } else {
+                ++$i;
+            }
+            $row = $this->source->get_next_row();
+
+            // Increment the counter for users created by this admin:
+            if (\FormaLms\lib\FormaUser::getCurrentUser()->getUserLevelId() != ADMIN_GROUP_GODADMIN) {
+                $admin_pref = new AdminPreference();
+                $pref = $admin_pref->getAdminRules(\FormaLms\lib\FormaUser::getCurrentUser()->getIdSt());
+                if ($pref['admin_rules.limit_user_insert'] == 'on') {
+                    $user_pref = new UserPreferences(\FormaLms\lib\FormaUser::getCurrentUser()->getIdSt());
+                    $user_created_count = (int) $user_pref->getPreference('user_created_count');
+                    ++$user_created_count;
+                    $user_pref->setPreference('user_created_count', $user_created_count);
+                }
+            }
+        }
+        if ($open_transaction) {
+            \FormaLms\lib\Forma::db()->commit();
+        }
+        $out[0] = ($this->source->first_row_header ? $this->source->get_row_index() - 1 : $this->source->get_row_index());
+
+        return $out;
+    }
+}
