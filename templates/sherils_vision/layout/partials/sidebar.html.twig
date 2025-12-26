@@ -1,0 +1,36 @@
+{# Sidebar menu for LMS course navigation - sherils_vision template #}
+<aside class="lms-sidebar">
+    <div class="sidebar-header">
+        <h4 class="sidebar-title">{{ Lang_translate('_COURSE_NAVIGATION', 'menu_course') }}</h4>
+        <button type="button" class="sidebar-toggle" data-toggle="collapse" data-target="#sidebar-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </button>
+    </div>
+    
+    <nav id="sidebar-menu" class="sidebar-nav collapse in" role="navigation">
+        <ul class="nav nav-sidebar">
+            {% if dropdown is defined and dropdown is not empty %}
+                {% for menu_group in dropdown %}
+                    <li class="nav-item nav-menu-group{% if menu_group.selected %} active{% endif %}">
+                        <a href="#sidebar-group-{{ menu_group.id_menu }}" class="nav-link{% if menu_group.selected %} active{% endif %}" data-toggle="collapse" role="button" aria-expanded="{% if menu_group.selected %}true{% else %}false{% endif %}" aria-controls="sidebar-group-{{ menu_group.id_menu }}">
+                            <span class="nav-group-title">{{ menu_group.name }}</span>
+                            <span class="nav-toggle-icon glyphicon glyphicon-chevron-down"></span>
+                        </a>
+                        
+                        {% if menu_group.slider_menu is defined and menu_group.slider_menu is not empty %}
+                            <ul class="collapse{% if menu_group.selected %} in{% endif %}" id="sidebar-group-{{ menu_group.id_menu }}">
+                                {% for menu_item in menu_group.slider_menu %}
+                                    <li class="nav-sub-item{% if menu_item.selected %} active{% endif %}">
+                                        <a href="{{ menu_item.link }}" class="nav-link{% if menu_item.selected %} active{% endif %}">
+                                            {{ menu_item.name }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </nav>
+</aside>
