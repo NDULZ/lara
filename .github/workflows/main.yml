@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - master
-name: 🚀 Deploy website on push
+name: 🚀 Deploy to lms.shaeteq.com on push
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -14,6 +14,6 @@ jobs:
     - name: 📂 Sync fisles
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: yourdomain.com
+        server: lms.shaeteq.com
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
