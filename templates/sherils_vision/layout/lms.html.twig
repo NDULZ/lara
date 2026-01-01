@@ -5,7 +5,6 @@
     <link rel="stylesheet" type="text/css" href="{{ Layout_getPath() }}style/lms.css?v={{ Template_getVersion() }}"/>
     <link rel="stylesheet" type="text/css" href="{{ Layout_getPath() }}style/lms-to-review.css?v={{ Template_getVersion() }}"/>
     <link rel="stylesheet" type="text/css" href="{{ Layout_getPath() }}style/lms-menu.css?v={{ Template_getVersion() }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ Layout_getPath() }}style/lms-sidebar.css?v={{ Template_getVersion() }}"/>
     <link rel="stylesheet" type="text/css" href="{{ Layout_getPath() }}style/table-responsive.css?v={{ Template_getVersion() }}"/>
 
 {% endblock %}
@@ -13,7 +12,6 @@
 {% block javascript %}
 
     <script type="text/javascript" src="{{ Get_relPath('base') }}/lib/js_utils.js?v={{ Template_getVersion() }}"></script>
-    <script type="text/javascript" src="{{ Layout_getPath() }}script/lms-sidebar.js?v={{ Template_getVersion() }}"></script>
 
 {% endblock %}
 
@@ -65,26 +63,21 @@
         </div>
 
 
-        <!-- content with sidebar -->
-        <div id="lms_main_container" class="row lms-content-wrapper">
-            
-            <!-- Sidebar Navigation -->
-            {% include 'layout/partials/sidebar.html.twig' with {dropdown:dropdown} %}
-            
-            <!-- Main Content Area -->
-            <main id="lms-main-content" class="lms-main-area">
-                
-                <!-- Course Header -->
-                <div id="course-info-boot" class="lms-course-header">
+        <!-- content -->
+        <div id="lms_main_container" class="row">
+
+                <!-- MENU LATERALE ON/OFF -->
+                <div id="course-info-boot" class="col-md-12">
+
+                    {{ Layout_getZone('menu') }}
                     {% include 'coursemenu_lat.html.twig' with {dropdown:dropdown, course_name:course_name, course_img:course_img } %}
                 </div>
 
-                <!-- Page Content -->
-                <div id="yui-main-boot" class="lms-page-content">
-                    {{ direct_play|raw }}
-                </div>
+            <div id="yui-main-boot" class='col-md-12'>
 
-            </main>
+                {{ direct_play|raw }}
+
+            </div>
 
             <div class="nofloat"></div>
         </div>
