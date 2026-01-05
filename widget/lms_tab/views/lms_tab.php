@@ -52,11 +52,11 @@
     }
     ?>
 
-    <!--<nav class="buttonsBar tabs-wrapper">
+    <nav class="buttonsBar tabs-wrapper">
         <ul class="nav nav-tabs slider-menu--tabs">
             <?php echo $tablist_items; ?>
         </ul>
-    </nav>-->
+    </nav>
 
         
         
