@@ -14,6 +14,10 @@ $str_all = Lang::t("_ALL_COURSE_TYPE", 'course');
         <?php echo $common_options; ?>
     </div>
     <div class="filterBar__legacyContainer">
+        <?php if ($inline_filters) { ?>
+          <div class="filterBar__buttons navbar-extra col-md-3"><?php echo $inline_filters; ?></div>
+        <?php } ?>
+
         <div class="filterBar__advanced collapse navbar-collapse" id="filter-container">
             <div class="simple_search_box" id="<?php echo $id; ?>_simple_filter_options" style="display: block;">
 
@@ -24,13 +28,13 @@ $str_all = Lang::t("_ALL_COURSE_TYPE", 'course');
                         <label class="screenreader" for="course_search_filter_cat"><?php echo Lang::t('_CATEGORY_SELECTED', 'course') ?></label>
                         <?php echo $select_category ? $select_category : ''; ?>
 
-                        <legend for="course_search_filter_type" class="screenreader"><?php echo Lang::t('_COURSE_TYPE_SELECTION', 'course') ?></legend>
+                        <!-- <legend for="course_search_filter_type" class="screenreader"><?php echo Lang::t('_COURSE_TYPE_SELECTION', 'course') ?></legend>
                         <label class="screenreader" for="course_search_filter_type"><?php echo Lang::t('_COURSE_TYPE_SELECTION', 'course') ?></label>
-                        <?php echo $select_course_type ? $select_course_type : ''; ?>
+                        <?php /*echo $select_course_type ? $select_course_type : ''; ?>
 
                         <legend for="course_search_filter_year" class="screenreader"><?php echo Lang::t('_YEAR_SELECTION', 'course') ?></legend>
                         <label class="screenreader" for="course_search_filter_year"><?php echo Lang::t('_YEAR_SELECTION', 'course') ?></label>
-                        <?php echo $select_year ? $select_year : ''; ?>
+                        <?php echo $select_year ? $select_year : ''; */?> -->
 
                         <?php echo isset($_label_list) ? $_label_list : ''; ?>
                     </fieldset>
@@ -104,18 +108,6 @@ $str_all = Lang::t("_ALL_COURSE_TYPE", 'course');
 
             </div>
         </div>
-
-
-
-
-
-        <?php if ($inline_filters) { ?>
-          <div class="filterBar__buttons navbar-extra"><?php echo $inline_filters; ?></div>
-        <?php } ?>
-
-
-
-
 
         <div class="filterBar__mobile navbar-header">
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#filter-container">
