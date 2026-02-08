@@ -25,14 +25,18 @@ div.calendar { position: relative; }
 .calendar thead .title { /* This holds the current "month, year" */
   font-weight: bold;      /* Pressing it will take you to the current date */
   text-align: center;
-  background: #fff;
-  color: #000;
+  text-transform: uppercase;
+  background: gray;
+  color: white;
   padding: 2px;
 }
 
 .calendar thead .headrow { /* Row <TR> containing navigation buttons */
-  background: #778;
+  background-color: gray;
   color: #fff;
+  box-shadow: 0 .1em 1em 0 rgba(black, .25),
+                    0 .1em .5em 1px rgba(black, .35),
+                    0 1em 2em 1px rgba(black, .15);
 }
 
 .calendar thead .daynames { /* Row <TR> containing the day names */
@@ -40,10 +44,11 @@ div.calendar { position: relative; }
 }
 
 .calendar thead .name { /* Cells <TD> containing the day names */
-  border-bottom: 1px solid #556;
+  border-bottom: 0px solid #556;
   padding: 2px;
   text-align: center;
-  color: #000;
+  text-transform: uppercase;
+  color: #fff;
 }
 
 .calendar thead .weekend { /* How a weekend day name shows in header */
@@ -53,7 +58,7 @@ div.calendar { position: relative; }
 .calendar thead .hilite { /* How do the buttons in header appear when hover */
   background-color: #aaf;
   color: #000;
-  border: 1px solid #04f;
+  border: 0px solid #04f;
   padding: 1px;
 }
 
