@@ -38,23 +38,23 @@ div.calendar { position: relative; z-index: 9000; }
   background: transparent url("menuarrow.gif") no-repeat 100% 100%;
 }
 
-.calendar thead tr { background: url("title-bg.gif") repeat-x 0 100%; color: #000; }
+.calendar thead tr { z-index: 2; background-color: gray; color: white; box-shadow: 0 .1em 1em 0 rgba(black, .25), 0 .1em .5em 1px rgba(black, .35), 0 1em 2em 1px rgba(black, .15); }
 
 .calendar thead .title { /* This holds the current "month, year" */
   font-weight: bold;      /* Pressing it will take you to the current date */
   text-align: center;
+  text-transform: uppercase;
   padding: 2px;
-  background: url("title-bg.gif") repeat-x 0 100%; color: #000;
+  background-color: gray; color: #fff;
 }
 
 .calendar thead .headrow { /* Row <TR> containing navigation buttons */
 }
 
 .calendar thead .name { /* Cells <TD> containing the day names */
-  border-bottom: 1px solid #797979;
   padding: 2px;
   text-align: center;
-  color: #000;
+  color: #fff;
 }
 
 .calendar thead .weekend { /* How a weekend day name shows in header */
