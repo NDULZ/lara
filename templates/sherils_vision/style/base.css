@@ -366,7 +366,7 @@ ul.style_none li{list-style:none; }
 /*.quick_search_form{margin:10px 0;text-align:right;float:right;}*/
 .quick_search_form{margin:0;text-align:right;float:right;}
 .quick_search_form {
-    background-color: var(--color-grey) !important;
+    background-color: var(--color-white) !important;
 }
 .quick_search_form a {
     color: var(--color-wrapper-text) !important;
