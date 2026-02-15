@@ -4,7 +4,7 @@ function DrawRadialProgress(canvas) {
     const context = canvas.getContext('2d');
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
-    const radius = 60;
+    const radius = 40;
     const startAngle = 1.5 * Math.PI;
     const endAngle = startAngle + (percentage / 100) * (2 * Math.PI);
 
@@ -12,14 +12,14 @@ function DrawRadialProgress(canvas) {
 
     context.beginPath();
     context.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-    context.lineWidth = 20;
+    context.lineWidth = 15;
     context.lineJoin = "round";
     context.strokeStyle = getComputedStyle(canvas).getPropertyValue('--background-color');
     context.stroke();
 
     context.beginPath();
     context.arc(centerX, centerY, radius, startAngle, endAngle);
-    context.lineWidth = 20;
+    context.lineWidth = 15;
     context.strokeStyle = getComputedStyle(canvas).getPropertyValue('--foreground-color');
     context.stroke();
 
