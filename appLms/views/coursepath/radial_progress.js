@@ -12,7 +12,8 @@ function DrawRadialProgress(canvas) {
 
     context.beginPath();
     context.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-    context.lineWidth = 30;
+    context.lineWidth = 20;
+    context.lineJoin = "round";
     context.strokeStyle = getComputedStyle(canvas).getPropertyValue('--background-color');
     context.stroke();
 
@@ -22,7 +23,7 @@ function DrawRadialProgress(canvas) {
     context.strokeStyle = getComputedStyle(canvas).getPropertyValue('--foreground-color');
     context.stroke();
 
-    context.font = '22px Arial';
+    context.font = '18px Inter';
     context.fillStyle = getComputedStyle(canvas).getPropertyValue('--foreground-color');
     context.textAlign = 'center';
     context.textBaseline = 'middle';

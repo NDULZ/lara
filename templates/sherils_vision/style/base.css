@@ -1855,7 +1855,7 @@ ul.tabs li.current{
 
 .alert-danger {
     color: #ffffff !important;
-    font-weight:bold !important;
+    /* font-weight:bold !important; */
     background: #a94442 !important;
 }
 
