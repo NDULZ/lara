@@ -164,7 +164,7 @@ class __TwigTemplate_74146b26f1f9f5f204d138c81304bda760f3eab90f23a5d6ee9595655a1
         }
         foreach ($context['_seq'] as $context["_key"] => $context["course"]) {
             // line 83
-            echo "            <div class=\"col-xs-12 col-md-4 col-lg-3 mycourses-list\">
+            echo "            <div class=\"col-xs-12 col-md-4 col-lg-2 mycourses-list\">
                 ";
             // line 84
             $this->loadTemplate("partials/elearning-course-box.html.twig", "courselist.html.twig", 84)->display(twig_array_merge($context, ["course" => $context["course"]]));
