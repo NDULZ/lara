@@ -41,3 +41,25 @@ public/mix-manifest.json
 
 # Config
 config.php
+configO.php
+configB.php
+
+Archive
+Archive.zip
+addons/.DS_Store
+appCore/.DS_Store
+appLms/.DS_Store
+appLms/views/.DS_Store
+appScs/.DS_Store
+db/.DS_Store
+files/.DS_Store
+lib/.DS_Store
+plugins/.DS_Store
+templates/.DS_Store
+templates/sherils_vision/.DS_Store
+templates/sherils_vision/images/.DS_Store
+templates/sherils_vision/layout/.DS_Store
+templates/sherils_vision/layout/appCore/.DS_Store
+templates/sherils_vision/static/.DS_Store
+vendor/.DS_Store
+widget/.DS_Store
