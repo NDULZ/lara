@@ -94,7 +94,18 @@ a.no_decoration{text-decoration:none;}
 .title_block h1 a{text-decoration:none;margin-right:6px;}
 .title_block h1 a:hover{text-decoration:underline;}
 .title_block ul{display:inline;}
-.std_block{margin:0;padding:10px 0px;background:#ffffff;border:0;}
+.std_block{
+    margin: 20px auto;
+    padding: 60px 30px;
+    background: #ffffff;
+    border: 0;
+    position: relative;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .15);
+    max-width: 700px;
+    border-radius: 30px;
+    display: grid;
+    place-items: center;
+}
 .tab_block{margin:0 0 1em 0;}
 .tab_block .yui-content{background:#ffffff;}
 .inline_block{margin:0;padding:0;}
@@ -346,7 +357,7 @@ ul.style_none li{list-style:none; }
 .form_line_l select, .form-line select{margin-right:2px;}
 .form_line_l input[type=checkbox], .form-line input[type=checkbox]{width:auto; border:0px none; padding:0;}
 .form_line_l input.radio { display: inline-block; }
-.form_elem_button{padding-top:12px;padding-right:1em;text-align:right;}
+.form_elem_button{padding-top:12px;padding-right:1em;text-align:center;}
 .form_elem_button .button{margin:0 8px;}
 .yui-skin-docebo .yui-button input{color:#000000;font-size:90%;line-height:1.6em;min-height:1.6em;padding:0 10px;background-color:transparent;cursor:pointer;border:medium none;display:block;margin:0;}
 .fieldset-std{margin:10px 0;border:1px solid #cccccc;}
