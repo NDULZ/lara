@@ -164,7 +164,7 @@ class ProfileLmsController extends LmsController
         }
 
         //view part
-        echo $_title . '<div class="std_block">' . $_content . '</div>';
+        echo $_title . '<div class="std_block700">' . $_content . '</div>';
     }
 
     public function credits()

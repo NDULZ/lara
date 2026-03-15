@@ -1,7 +1,7 @@
 <?php
 echo getTitleArea(Lang::t('_PRECOMPILE', 'standard'));
 ?>
-<div class="std_block">
+<div class="std_block900">
 <?php
 
 echo $result_message;
@@ -16,7 +16,7 @@ if (!$fields_checked && FormaLms\lib\Get::sett('request_mandatory_fields_compila
 
 echo Form::getBreakRow();
 
-echo '<div class="boxed">';
+echo '<div class="boxed100">';
 echo '<p class="privacy_policy">';
 echo $policy_text;
 echo '</p>';
