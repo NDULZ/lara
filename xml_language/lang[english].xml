@@ -1207,11 +1207,593 @@ Username: [userid]]]></key>
         <key id="email&amp;_REFUSED_USER_SBJ" attributes="email" save_date="2020-09-15 14:47:12"><![CDATA[User not approved]]></key>
         <key id="email&amp;_REFUSED_USER_TEXT" attributes="email" save_date="2020-09-15 14:47:12"><![CDATA[The administrator of [url] has not approved your subscription request]]></key>
         <key id="email&amp;_REGISTERED_USER_SBJ" attributes="email" save_date="2020-09-15 14:47:12"><![CDATA[You are now registered in our system]]></key>
-        <key id="email&amp;_REGISTERED_USER_TEXT" attributes="email" save_date="2020-09-15 14:47:12"><![CDATA[You are now registered in our system at <a href="[url]">[url]</a>
-with this account:
-
-Username: [userid]
-Password: [password]]]></key>
+        <key id="email&amp;_REGISTERED_USER_TEXT" attributes="email" save_date="2020-09-15 14:47:12">
+          <office:document-content xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" office:version="1.2">
+            <office:font-face-decls>
+              <style:font-face style:name="Courier New" style:font-family-generic="modern" style:font-pitch="fixed" svg:font-family="'Courier New'" />
+            </office:font-face-decls>
+            <office:automatic-styles>
+              <style:style style:name="fr2" style:family="graphic" style:parent-style-name="Formula"><style:graphic-properties style:vertical-pos="middle" style:vertical-rel="text" style:horizontal-pos="center" style:horizontal-rel="paragraph-content" style:wrap="none" /></style:style>
+              <style:style style:name="fr1" style:family="graphic" style:parent-style-name="Formula"><style:graphic-properties style:vertical-pos="middle" style:vertical-rel="text" /></style:style>
+              <style:style style:name="P1" style:family="paragraph" style:parent-style-name="Table_20_Heading">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P2" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P3" style:family="paragraph" style:parent-style-name="P2">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P4" style:family="paragraph" style:parent-style-name="Table_20_Heading">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P5" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P6" style:family="paragraph" style:parent-style-name="P5">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P7" style:family="paragraph" style:parent-style-name="P5">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P8" style:family="paragraph" style:parent-style-name="P5">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P9" style:family="paragraph" style:parent-style-name="Table_20_Heading">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P10" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P11" style:family="paragraph" style:parent-style-name="P10">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P12" style:family="paragraph" style:parent-style-name="P5">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P13" style:family="paragraph" style:parent-style-name="P5">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P14" style:family="paragraph" style:parent-style-name="P5">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P15" style:family="paragraph" style:parent-style-name="P5">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P16" style:family="paragraph" style:parent-style-name="P5">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P17" style:family="paragraph" style:parent-style-name="P5">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P18" style:family="paragraph" style:parent-style-name="P5">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P19" style:family="paragraph" style:parent-style-name="Table_20_Heading">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P20" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P21" style:family="paragraph" style:parent-style-name="P20">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P22" style:family="paragraph" style:parent-style-name="Table_20_Heading">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P23" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P24" style:family="paragraph" style:parent-style-name="P23">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P25" style:family="paragraph" style:parent-style-name="Table_20_Heading">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P26" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P27" style:family="paragraph" style:parent-style-name="P26">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P28" style:family="paragraph" style:parent-style-name="Table_20_Heading">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P29" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P30" style:family="paragraph" style:parent-style-name="P29">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P31" style:family="paragraph" style:parent-style-name="Table_20_Heading">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P32" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P33" style:family="paragraph" style:parent-style-name="P32">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P34" style:family="paragraph" style:parent-style-name="Table_20_Heading">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P35" style:family="paragraph" style:parent-style-name="Table_20_Contents">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="P36" style:family="paragraph" style:parent-style-name="P35">
+                <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" />
+              </style:style>
+              <style:style style:name="TableHeaderRowCell" style:family="table-cell">
+                <style:table-cell-properties fo:border="none" />
+              </style:style>
+              <style:style style:name="TableRowCell" style:family="table-cell">
+                <style:table-cell-properties fo:border="none" />
+              </style:style>
+              <style:style style:name="Table1" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table1.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table2" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table2.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table3" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table3.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table4" style:family="table">
+                <style:table-properties table:align="center" />
+              </style:style>
+              <style:style style:name="Table4.A" style:family="table-column" />
+              <style:style style:name="Table5" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table5.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table6" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table6.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table7" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table7.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table8" style:family="table">
+                <style:table-properties table:align="center" />
+              </style:style>
+              <style:style style:name="Table8.A" style:family="table-column" />
+              <style:style style:name="Table9" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table9.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table10" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table10.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table11" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table11.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table12" style:family="table">
+                <style:table-properties table:align="center" />
+              </style:style>
+              <style:style style:name="Table12.A" style:family="table-column" />
+              <style:style style:name="Table13" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table13.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table14" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table14.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table15" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table15.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table16" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table16.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table17" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table17.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table18" style:family="table">
+                <style:table-properties table:align="center" />
+              </style:style>
+              <style:style style:name="Table18.A" style:family="table-column" />
+              <style:style style:name="Table19" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table19.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table20" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table20.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table21" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table21.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table22" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table22.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table23" style:family="table">
+                <style:table-properties table:align="center" style:rel-width="100%" />
+              </style:style>
+              <style:style style:name="Table23.A" style:family="table-column">
+                <style:table-column-properties style:rel-column-width="65535*" />
+              </style:style>
+              <style:style style:name="Table24" style:family="table">
+                <style:table-properties table:align="center" />
+              </style:style>
+              <style:style style:name="Table24.A" style:family="table-column" />
+            </office:automatic-styles>
+          <office:body>
+          <office:text>
+          <table:table table:name="Table1" table:style-name="Table1">
+            <table:table-column table:style-name="Table1.A" />
+            <table:table-row>
+              <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                <table:table table:name="Table2" table:style-name="Table2">
+                  <table:table-column table:style-name="Table2.A" />
+                  <table:table-row>
+                    <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                    </table:table-cell>
+                  </table:table-row>
+                  <table:table-row>
+                    <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                      <table:table table:name="Table3" table:style-name="Table3">
+                        <table:table-column table:style-name="Table3.A" />
+                        <table:table-row>
+                          <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                            <table:table table:name="Table4" table:style-name="Table4">
+                              <table:table-column table:style-name="Table4.A" />
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="Table_20_Contents"><draw:frame draw:name="img1" svg:width="600" svg:height="434"><draw:image xlink:href="images/7420f762eaea23270fcfbd7eb05d94f3.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" /></draw:frame></text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                            </table:table>
+                          </table:table-cell>
+                        </table:table-row>
+                      </table:table>
+                    </table:table-cell>
+                  </table:table-row>
+                  <table:table-row>
+                    <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                      <table:table table:name="Table5" table:style-name="Table5">
+                        <table:table-column table:style-name="Table5.A" />
+                        <table:table-row>
+                          <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                            <table:table table:name="Table6" table:style-name="Table6">
+                              <table:table-column table:style-name="Table6.A" />
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P6">Lära LMS is a
+                                  flexible LMS suitable for corporate training,
+                                  enabling companies to centralise employee
+                                  learning, compliance training, performance
+                                  tracking, and course delivery within one
+                                  user-friendly
+                                  system.<text:line-break /></text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P5"> </text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P7">Through Lära,
+                                  you’ll be able to access training materials,
+                                  complete courses, track your progress, and stay
+                                  up to date on important learning
+                                  activities.<text:line-break /></text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P5"> </text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P8">We’re excited to
+                                  have you on board and look forward to supporting
+                                  your learning
+                                  journey.<text:line-break /></text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P5"> </text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <table:table table:name="Table7" table:style-name="Table7">
+                                    <table:table-column table:style-name="Table7.A" />
+                                    <table:table-row>
+                                      <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                        <table:table table:name="Table8" table:style-name="Table8">
+                                          <table:table-column table:style-name="Table8.A" />
+                                          <table:table-row>
+                                            <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                              <text:p text:style-name="Table_20_Contents"> </text:p>
+                                            </table:table-cell>
+                                          </table:table-row>
+                                        </table:table>
+                                      </table:table-cell>
+                                    </table:table-row>
+                                  </table:table>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P5"> </text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P12">PLEASE ACTIVATE
+                                  YOUR ACCOUNT<text:line-break /></text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P5"> </text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P13"><text:line-break />Hi
+                                  [firstname],<text:line-break /></text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P5"> </text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P14">You’ve been
+                                  successfully registered on Lära LMS, our
+                                  learning management platform designed to support
+                                  your training and professional
+                                  development.<text:line-break /></text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P5"> </text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P15">To get started,
+                                  please log in using the details provided and
+                                  change your password to activate your
+                                  account.<text:line-break /></text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P5"> </text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P16">Username: [userid]<text:line-break /></text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P5"> </text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P17">Password: [password]<text:line-break /></text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P5"> </text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P18">For security
+                                  purposes, you’ll be prompted to create a new
+                                  password upon your first
+                                  login.<text:line-break /></text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <text:p text:style-name="P5"> </text:p>
+                                </table:table-cell>
+                              </table:table-row>
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <table:table table:name="Table9" table:style-name="Table9">
+                                    <table:table-column table:style-name="Table9.A" />
+                                    <table:table-row>
+                                      <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                        <table:table table:name="Table10" table:style-name="Table10">
+                                          <table:table-column table:style-name="Table10.A" />
+                                          <table:table-row>
+                                            <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                              <table:table table:name="Table11" table:style-name="Table11">
+                                                <table:table-column table:style-name="Table11.A" />
+                                                <table:table-row>
+                                                  <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                                    <text:p text:style-name="Table_20_Contents"><text:a xlink:type="simple" xlink:href="http://biodeal.shaeteq.com" office:name=""><text:span text:style-name="Definition"></text:span></text:a></text:p><table:table table:name="Table12" table:style-name="Table12">
+                                                      <table:table-column table:style-name="Table12.A" />
+                                                      <table:table-row>
+                                                        <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                                          <text:p text:style-name="P24">LOGIN
+                                                          HERE </text:p>
+                                                        </table:table-cell>
+                                                      </table:table-row>
+                                                    </table:table>
+                                                  </table:table-cell>
+                                                </table:table-row>
+                                              </table:table>
+                                            </table:table-cell>
+                                          </table:table-row>
+                                        </table:table>
+                                      </table:table-cell>
+                                    </table:table-row>
+                                  </table:table>
+                                </table:table-cell>
+                              </table:table-row>
+                            </table:table>
+                          </table:table-cell>
+                        </table:table-row>
+                      </table:table>
+                    </table:table-cell>
+                  </table:table-row>
+                  <table:table-row>
+                    <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                      <text:p text:style-name="Table_20_Contents"> </text:p>
+                    </table:table-cell>
+                  </table:table-row>
+                  <table:table-row>
+                    <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                      <table:table table:name="Table13" table:style-name="Table13">
+                        <table:table-column table:style-name="Table13.A" />
+                        <table:table-row>
+                          <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                            <table:table table:name="Table14" table:style-name="Table14">
+                              <table:table-column table:style-name="Table14.A" />
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <table:table table:name="Table15" table:style-name="Table15">
+                                    <table:table-column table:style-name="Table15.A" />
+                                    <table:table-row>
+                                      <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                        <table:table table:name="Table16" table:style-name="Table16">
+                                          <table:table-column table:style-name="Table16.A" />
+                                          <table:table-row>
+                                            <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                              <table:table table:name="Table17" table:style-name="Table17">
+                                                <table:table-column table:style-name="Table17.A" />
+                                                <table:table-row>
+                                                  <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                                    <table:table table:name="Table18" table:style-name="Table18">
+                                                      <table:table-column table:style-name="Table18.A" />
+                                                      <table:table-row>
+                                                        <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                                          <text:p text:style-name="Table_20_Contents"><draw:frame draw:name="img2" svg:width="570" svg:height="269"><draw:image xlink:href="images/12548ffb9215d109d452587924883112.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" /></draw:frame></text:p>
+                                                        </table:table-cell>
+                                                      </table:table-row>
+                                                    </table:table>
+                                                  </table:table-cell>
+                                                </table:table-row>
+                                              </table:table>
+                                            </table:table-cell>
+                                          </table:table-row>
+                                        </table:table>
+                                      </table:table-cell>
+                                    </table:table-row>
+                                  </table:table>
+                                </table:table-cell>
+                              </table:table-row>
+                            </table:table>
+                          </table:table-cell>
+                        </table:table-row>
+                      </table:table><table:table table:name="Table19" table:style-name="Table19">
+                        <table:table-column table:style-name="Table19.A" />
+                        <table:table-row>
+                          <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                            <table:table table:name="Table20" table:style-name="Table20">
+                              <table:table-column table:style-name="Table20.A" />
+                              <table:table-row>
+                                <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                  <table:table table:name="Table21" table:style-name="Table21">
+                                    <table:table-column table:style-name="Table21.A" />
+                                    <table:table-row>
+                                      <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                        <table:table table:name="Table22" table:style-name="Table22">
+                                          <table:table-column table:style-name="Table22.A" />
+                                          <table:table-row>
+                                            <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                              <table:table table:name="Table23" table:style-name="Table23">
+                                                <table:table-column table:style-name="Table23.A" />
+                                                <table:table-row>
+                                                  <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                                    <table:table table:name="Table24" table:style-name="Table24">
+                                                      <table:table-column table:style-name="Table24.A" />
+                                                      <table:table-row>
+                                                        <table:table-cell table:style-name="TableRowCell" office:value-type="string">
+                                                          <text:p text:style-name="Table_20_Contents"><draw:frame draw:name="img3" svg:width="11" svg:height="5"><draw:image xlink:href="images/12548ffb9215d109d452587924883112.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad" /></draw:frame></text:p>
+                                                        </table:table-cell>
+                                                      </table:table-row>
+                                                    </table:table>
+                                                  </table:table-cell>
+                                                </table:table-row>
+                                              </table:table>
+                                            </table:table-cell>
+                                          </table:table-row>
+                                        </table:table>
+                                      </table:table-cell>
+                                    </table:table-row>
+                                  </table:table>
+                                </table:table-cell>
+                              </table:table-row>
+                            </table:table>
+                          </table:table-cell>
+                        </table:table-row>
+                      </table:table>
+                    </table:table-cell>
+                  </table:table-row>
+                </table:table>
+              </table:table-cell>
+            </table:table-row>
+          </table:table>
+          </office:text>
+          </office:body>
+          </office:document-content>
+        </key>
         <key id="email&amp;_SUBJECT_NOTIFY_MESSAGE" attributes="email" save_date="2020-09-15 14:47:12"><![CDATA[Alert: New message in a thread]]></key>
         <key id="email&amp;_SUBJECT_NOTIFY_THREAD" attributes="email" save_date="2020-09-15 14:47:12"><![CDATA[Alert: new thread]]></key>
         <key id="email&amp;_TO_APPROVE_GROUP_USER_SBJ" attributes="email" save_date="2020-09-15 14:47:12"><![CDATA[New user group subscription waiting for approval]]></key>
